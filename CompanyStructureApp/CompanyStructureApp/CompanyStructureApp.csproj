@@ -53,12 +53,6 @@
       <DependentUpon>AddFirmView.cs</DependentUpon>
     </Compile>
     <Compile Include="AddFirmViewModel.cs" />
-    <Compile Include="ComboAndEntry.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="ComboAndEntry.Designer.cs">
-      <DependentUpon>ComboAndEntry.cs</DependentUpon>
-    </Compile>
     <Compile Include="CompanyStructureView.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -87,9 +81,6 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="AddFirmView.resx">
       <DependentUpon>AddFirmView.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="ComboAndEntry.resx">
-      <DependentUpon>ComboAndEntry.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="CompanyStructureView.resx">
       <DependentUpon>CompanyStructureView.cs</DependentUpon>
