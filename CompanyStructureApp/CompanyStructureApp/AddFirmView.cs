@@ -30,12 +30,11 @@ namespace CompanyStructureApp
             {
                 cmbHeadOfFirm.Items.Add($"{employee.Name} {employee.Surname}");
             }
-
         }
 
         private void btnOk_Click(object sender, EventArgs e)
         {
-            //_addFirmViewModel.HeadOfFirmId = 
+            _addFirmViewModel.HeadOfFirmId = _addFirmViewModel.Employees[cmbHeadOfFirm.SelectedIndex].EmployeeId; 
             _addFirmViewModel.AddFirm();
         }
 

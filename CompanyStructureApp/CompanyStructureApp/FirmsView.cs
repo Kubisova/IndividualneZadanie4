@@ -40,5 +40,10 @@ namespace CompanyStructureApp
         {
             Close();
         }
+
+        private void btnEmployees_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

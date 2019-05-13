@@ -31,7 +31,7 @@ namespace CompanyStructureApp
 
         public void AddFirm()
         {
-
+            //_companyStructureNodeRepository.AddFirm(firm);
         }
     }
 

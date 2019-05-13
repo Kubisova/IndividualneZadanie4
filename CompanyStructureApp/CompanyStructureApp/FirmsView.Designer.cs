@@ -120,6 +120,7 @@
             this.btnEmployees.TabIndex = 9;
             this.btnEmployees.Text = "Zamestnanci";
             this.btnEmployees.UseVisualStyleBackColor = true;
+            this.btnEmployees.Click += new System.EventHandler(this.btnEmployees_Click);
             // 
             // FirmsView
             // 

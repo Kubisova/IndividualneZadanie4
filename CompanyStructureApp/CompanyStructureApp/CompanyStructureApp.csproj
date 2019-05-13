@@ -65,6 +65,18 @@
     <Compile Include="CompanyStructureView.Designer.cs">
       <DependentUpon>CompanyStructureView.cs</DependentUpon>
     </Compile>
+    <Compile Include="EmployeesView.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="EmployeesView.Designer.cs">
+      <DependentUpon>EmployeesView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="EmployeeView.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="EmployeeView.Designer.cs">
+      <DependentUpon>EmployeeView.cs</DependentUpon>
+    </Compile>
     <Compile Include="FirmsView.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -81,6 +93,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="CompanyStructureView.resx">
       <DependentUpon>CompanyStructureView.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="EmployeesView.resx">
+      <DependentUpon>EmployeesView.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="EmployeeView.resx">
+      <DependentUpon>EmployeeView.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FirmsView.resx">
       <DependentUpon>FirmsView.cs</DependentUpon>
