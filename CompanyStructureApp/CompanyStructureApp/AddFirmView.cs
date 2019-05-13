@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Data.Models;
 
 namespace CompanyStructureApp
 {
@@ -18,10 +19,23 @@ namespace CompanyStructureApp
         {
             _addFirmViewModel = addFirmViewModel;
             InitializeComponent();
+            Init();
+        }
+
+        private void Init()
+        {
+            _addFirmViewModel.GetEmployees();
+
+            foreach (Employee employee in _addFirmViewModel.Employees)
+            {
+                cmbHeadOfFirm.Items.Add($"{employee.Name} {employee.Surname}");
+            }
+
         }
 
         private void btnOk_Click(object sender, EventArgs e)
         {
+            //_addFirmViewModel.HeadOfFirmId = 
             _addFirmViewModel.AddFirm();
         }
 
@@ -43,6 +57,11 @@ namespace CompanyStructureApp
                 nameof(_addFirmViewModel.FirmName),
                 true,
                 DataSourceUpdateMode.OnPropertyChanged);
+        }
+
+        private void btnEmployees_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

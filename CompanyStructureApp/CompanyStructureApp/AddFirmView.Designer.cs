@@ -35,7 +35,8 @@
             this.btnOk = new System.Windows.Forms.Button();
             this.btnCancel = new System.Windows.Forms.Button();
             this.numTBCode = new Controls.NumericTextBox();
-            this.comboAndEntry1 = new CompanyStructureApp.ComboAndEntry();
+            this.cmbHeadOfFirm = new System.Windows.Forms.ComboBox();
+            this.btnEmployees = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // lblCode
@@ -104,19 +105,32 @@
             this.numTBCode.Size = new System.Drawing.Size(100, 20);
             this.numTBCode.TabIndex = 8;
             // 
-            // comboAndEntry1
+            // cmbHeadOfFirm
             // 
-            this.comboAndEntry1.Location = new System.Drawing.Point(100, 105);
-            this.comboAndEntry1.Name = "comboAndEntry1";
-            this.comboAndEntry1.Size = new System.Drawing.Size(304, 50);
-            this.comboAndEntry1.TabIndex = 9;
+            this.cmbHeadOfFirm.FormattingEnabled = true;
+            this.cmbHeadOfFirm.Location = new System.Drawing.Point(113, 122);
+            this.cmbHeadOfFirm.Name = "cmbHeadOfFirm";
+            this.cmbHeadOfFirm.Size = new System.Drawing.Size(230, 21);
+            this.cmbHeadOfFirm.TabIndex = 9;
+            // 
+            // btnEmployees
+            // 
+            this.btnEmployees.Location = new System.Drawing.Point(350, 122);
+            this.btnEmployees.Name = "btnEmployees";
+            this.btnEmployees.Size = new System.Drawing.Size(35, 23);
+            this.btnEmployees.TabIndex = 10;
+            this.btnEmployees.Text = "...";
+            this.btnEmployees.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.btnEmployees.UseVisualStyleBackColor = true;
+            this.btnEmployees.Click += new System.EventHandler(this.btnEmployees_Click);
             // 
             // AddFirmView
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(449, 256);
-            this.Controls.Add(this.comboAndEntry1);
+            this.Controls.Add(this.btnEmployees);
+            this.Controls.Add(this.cmbHeadOfFirm);
             this.Controls.Add(this.numTBCode);
             this.Controls.Add(this.btnCancel);
             this.Controls.Add(this.btnOk);
@@ -140,6 +154,7 @@
         private System.Windows.Forms.Button btnOk;
         private System.Windows.Forms.Button btnCancel;
         private Controls.NumericTextBox numTBCode;
-        private ComboAndEntry comboAndEntry1;
+        private System.Windows.Forms.ComboBox cmbHeadOfFirm;
+        private System.Windows.Forms.Button btnEmployees;
     }
 }
