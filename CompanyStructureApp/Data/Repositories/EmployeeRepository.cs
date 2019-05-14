@@ -11,7 +11,7 @@ namespace Data.Repositories
 {
     static class Constants
     {
-        public const string CONNECTION_STRING = @"Server = DESKTOP-GKFDQEI\SQLEXPRESS; Database = CompanyStructureDb;Trusted_Connection = true";
+        public const string CONNECTION_STRING = @"Server = kubisova\sql2014; Database = CompanyStructureDb;Trusted_Connection = true";
     }
 
     public class EmployeeRepository

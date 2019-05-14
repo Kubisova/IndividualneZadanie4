@@ -45,7 +45,7 @@ namespace CompanyStructureApp
 
         private void BindControls()
         {
-            numTBCode.DataBindings.Add(nameof(numTBCode.Text),
+            txtCode.DataBindings.Add(nameof(txtCode.Text),
                 _addFirmViewModel,
                 nameof(_addFirmViewModel.FirmCode),
                 true,

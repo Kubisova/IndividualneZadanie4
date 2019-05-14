@@ -44,7 +44,7 @@ namespace CompanyStructureApp
                 true,
                 DataSourceUpdateMode.OnPropertyChanged);
 
-            numtxtPhone.DataBindings.Add(nameof(numtxtPhone.Text),
+            txtPhone.DataBindings.Add(nameof(txtPhone.Text),
                 _employeeViewModel,
                 nameof(_employeeViewModel.Phone),
                 true,

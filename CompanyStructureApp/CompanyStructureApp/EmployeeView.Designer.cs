@@ -36,10 +36,10 @@
             this.lblEmail = new System.Windows.Forms.Label();
             this.txtName = new System.Windows.Forms.TextBox();
             this.txtSurname = new System.Windows.Forms.TextBox();
-            this.numtxtPhone = new Controls.NumericTextBox();
             this.txtEmail = new System.Windows.Forms.TextBox();
             this.lblPutInStructure = new System.Windows.Forms.Label();
             this.cmbPutInStructure = new System.Windows.Forms.ComboBox();
+            this.txtPhone = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
             // 
             // btnOk
@@ -118,13 +118,6 @@
             this.txtSurname.Size = new System.Drawing.Size(285, 20);
             this.txtSurname.TabIndex = 7;
             // 
-            // numtxtPhone
-            // 
-            this.numtxtPhone.Location = new System.Drawing.Point(106, 97);
-            this.numtxtPhone.Name = "numtxtPhone";
-            this.numtxtPhone.Size = new System.Drawing.Size(285, 20);
-            this.numtxtPhone.TabIndex = 8;
-            // 
             // txtEmail
             // 
             this.txtEmail.Location = new System.Drawing.Point(106, 133);
@@ -150,15 +143,22 @@
             this.cmbPutInStructure.Size = new System.Drawing.Size(285, 21);
             this.cmbPutInStructure.TabIndex = 11;
             // 
+            // txtPhone
+            // 
+            this.txtPhone.Location = new System.Drawing.Point(106, 92);
+            this.txtPhone.Name = "txtPhone";
+            this.txtPhone.Size = new System.Drawing.Size(154, 20);
+            this.txtPhone.TabIndex = 12;
+            // 
             // EmployeeView
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(416, 263);
+            this.Controls.Add(this.txtPhone);
             this.Controls.Add(this.cmbPutInStructure);
             this.Controls.Add(this.lblPutInStructure);
             this.Controls.Add(this.txtEmail);
-            this.Controls.Add(this.numtxtPhone);
             this.Controls.Add(this.txtSurname);
             this.Controls.Add(this.txtName);
             this.Controls.Add(this.lblEmail);
@@ -184,9 +184,9 @@
         private System.Windows.Forms.Label lblEmail;
         private System.Windows.Forms.TextBox txtName;
         private System.Windows.Forms.TextBox txtSurname;
-        private Controls.NumericTextBox numtxtPhone;
         private System.Windows.Forms.TextBox txtEmail;
         private System.Windows.Forms.Label lblPutInStructure;
         private System.Windows.Forms.ComboBox cmbPutInStructure;
+        private System.Windows.Forms.TextBox txtPhone;
     }
 }

@@ -123,10 +123,6 @@
       <Project>{caeaa93a-cdd2-4539-8c68-5dca9db06353}</Project>
       <Name>Data</Name>
     </ProjectReference>
-    <ProjectReference Include="..\Support\Support.csproj">
-      <Project>{F573346A-029B-4A74-9BA1-00641C88CC08}</Project>
-      <Name>Support</Name>
-    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

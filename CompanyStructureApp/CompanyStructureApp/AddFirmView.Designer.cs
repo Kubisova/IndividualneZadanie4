@@ -34,9 +34,9 @@
             this.txtName = new System.Windows.Forms.TextBox();
             this.btnOk = new System.Windows.Forms.Button();
             this.btnCancel = new System.Windows.Forms.Button();
-            this.numTBCode = new Controls.NumericTextBox();
             this.cmbHeadOfFirm = new System.Windows.Forms.ComboBox();
             this.btnEmployees = new System.Windows.Forms.Button();
+            this.txtCode = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
             // 
             // lblCode
@@ -98,13 +98,6 @@
             this.btnCancel.UseVisualStyleBackColor = true;
             this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
             // 
-            // numTBCode
-            // 
-            this.numTBCode.Location = new System.Drawing.Point(113, 40);
-            this.numTBCode.Name = "numTBCode";
-            this.numTBCode.Size = new System.Drawing.Size(100, 20);
-            this.numTBCode.TabIndex = 8;
-            // 
             // cmbHeadOfFirm
             // 
             this.cmbHeadOfFirm.FormattingEnabled = true;
@@ -124,14 +117,21 @@
             this.btnEmployees.UseVisualStyleBackColor = true;
             this.btnEmployees.Click += new System.EventHandler(this.btnEmployees_Click);
             // 
+            // txtCode
+            // 
+            this.txtCode.Location = new System.Drawing.Point(113, 36);
+            this.txtCode.Name = "txtCode";
+            this.txtCode.Size = new System.Drawing.Size(100, 20);
+            this.txtCode.TabIndex = 11;
+            // 
             // AddFirmView
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(449, 256);
+            this.Controls.Add(this.txtCode);
             this.Controls.Add(this.btnEmployees);
             this.Controls.Add(this.cmbHeadOfFirm);
-            this.Controls.Add(this.numTBCode);
             this.Controls.Add(this.btnCancel);
             this.Controls.Add(this.btnOk);
             this.Controls.Add(this.txtName);
@@ -153,8 +153,8 @@
         private System.Windows.Forms.TextBox txtName;
         private System.Windows.Forms.Button btnOk;
         private System.Windows.Forms.Button btnCancel;
-        private Controls.NumericTextBox numTBCode;
         private System.Windows.Forms.ComboBox cmbHeadOfFirm;
         private System.Windows.Forms.Button btnEmployees;
+        private System.Windows.Forms.TextBox txtCode;
     }
 }
