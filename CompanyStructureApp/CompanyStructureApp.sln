@@ -1,6 +1,6 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio Express 15 for Windows Desktop
+# Visual Studio 15
 VisualStudioVersion = 15.0.28307.438
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CompanyStructureApp", "CompanyStructureApp\CompanyStructureApp.csproj", "{9397B7D4-6239-44B4-8E37-DABD89216253}"
@@ -8,6 +8,11 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CompanyStructureCore", "CompanyStructureCore\CompanyStructureCore.csproj", "{618988EB-5D8A-4AEA-B72D-6D6140ABEA94}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Data", "Data\Data.csproj", "{CAEAA93A-CDD2-4539-8C68-5DCA9DB06353}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{FDCC18ED-DD3B-4231-8BF9-E85AECA645B6}"
+	ProjectSection(SolutionItems) = preProject
+		SqlScript.sql = SqlScript.sql
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
