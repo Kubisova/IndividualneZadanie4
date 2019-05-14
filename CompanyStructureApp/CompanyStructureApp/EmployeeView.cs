@@ -29,34 +29,5 @@ namespace CompanyStructureApp
         {
 
         }
-
-        private void BindControls()
-        {
-            txtName.DataBindings.Add(nameof(txtName.Text),
-                _employeeViewModel,
-                nameof(_employeeViewModel.Name),
-                true,
-                DataSourceUpdateMode.OnPropertyChanged);
-
-            txtSurname.DataBindings.Add(nameof(txtSurname.Text),
-                _employeeViewModel,
-                nameof(_employeeViewModel.Surname),
-                true,
-                DataSourceUpdateMode.OnPropertyChanged);
-
-            txtPhone.DataBindings.Add(nameof(txtPhone.Text),
-                _employeeViewModel,
-                nameof(_employeeViewModel.Phone),
-                true,
-                DataSourceUpdateMode.OnPropertyChanged);
-
-            txtEmail.DataBindings.Add(nameof(txtEmail.Text),
-                _employeeViewModel,
-                nameof(_employeeViewModel.Email),
-                true,
-                DataSourceUpdateMode.OnPropertyChanged);
-
-            
-        }
     }
 }

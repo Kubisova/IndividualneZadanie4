@@ -8,23 +8,36 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using Data.Models;
+using Data;
 
 namespace CompanyStructureApp
 {
     public partial class AddFirmView : Form
     {
         private AddFirmViewModel _addFirmViewModel;
+        private TypeOfNode _typeOfNode;
+        private int _parentId;
 
-        public AddFirmView(AddFirmViewModel addFirmViewModel)
+        public AddFirmView(AddFirmViewModel addFirmViewModel, TypeOfNode typeOfNode)
         {
             _addFirmViewModel = addFirmViewModel;
+            _typeOfNode = typeOfNode;
+            InitializeComponent();
+            Init();
+        }
+
+        public AddFirmView(AddFirmViewModel addFirmViewModel, TypeOfNode typeOfNode, int parentId)
+        {
+            _addFirmViewModel = addFirmViewModel;
+            _typeOfNode = typeOfNode;
+            _parentId = parentId;
             InitializeComponent();
             Init();
         }
 
         private void Init()
         {
-            _addFirmViewModel.GetEmployees();
+            _addFirmViewModel.GetEmployeesByFirm();
 
             foreach (Employee employee in _addFirmViewModel.Employees)
             {
@@ -34,28 +47,29 @@ namespace CompanyStructureApp
 
         private void btnOk_Click(object sender, EventArgs e)
         {
-            _addFirmViewModel.HeadOfFirmId = _addFirmViewModel.Employees[cmbHeadOfFirm.SelectedIndex].EmployeeId; 
-            _addFirmViewModel.AddFirm();
+            _addFirmViewModel.CodeOfNode = txtCode.Text;
+            _addFirmViewModel.NameOfNode = txtName.Text;
+            if (cmbHeadOfFirm.SelectedIndex > -1)
+            {
+                _addFirmViewModel.HeadOfNodeId = _addFirmViewModel.Employees[cmbHeadOfFirm.SelectedIndex].EmployeeId;
+            }
+
+            if (_parentId == 0)
+            {
+                _addFirmViewModel.AddNode(_typeOfNode);
+            }
+            else
+            {
+                _addFirmViewModel.AddNode(_typeOfNode, _parentId);
+            }
+            
+            this.DialogResult = DialogResult.OK;
+            Close();
         }
 
         private void btnCancel_Click(object sender, EventArgs e)
         {
             Close();
-        }
-
-        private void BindControls()
-        {
-            txtCode.DataBindings.Add(nameof(txtCode.Text),
-                _addFirmViewModel,
-                nameof(_addFirmViewModel.FirmCode),
-                true,
-                DataSourceUpdateMode.OnPropertyChanged);
-
-            txtName.DataBindings.Add(nameof(txtName.Text),
-                _addFirmViewModel,
-                nameof(_addFirmViewModel.FirmName),
-                true,
-                DataSourceUpdateMode.OnPropertyChanged);
         }
 
         private void btnEmployees_Click(object sender, EventArgs e)

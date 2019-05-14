@@ -59,6 +59,7 @@
     <Compile Include="CompanyStructureView.Designer.cs">
       <DependentUpon>CompanyStructureView.cs</DependentUpon>
     </Compile>
+    <Compile Include="CompanyStructureViewModel.cs" />
     <Compile Include="EmployeesView.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -79,6 +80,7 @@
     <Compile Include="FirmsView.Designer.cs">
       <DependentUpon>FirmsView.cs</DependentUpon>
     </Compile>
+    <Compile Include="FirmsViewModel.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="AddFirmView.resx">
@@ -119,6 +121,10 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\CompanyStructureCore\CompanyStructureCore.csproj">
+      <Project>{618988eb-5d8a-4aea-b72d-6d6140abea94}</Project>
+      <Name>CompanyStructureCore</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Data\Data.csproj">
       <Project>{caeaa93a-cdd2-4539-8c68-5dca9db06353}</Project>
       <Name>Data</Name>

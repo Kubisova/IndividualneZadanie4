@@ -20,10 +20,9 @@ namespace Data.Models
         [DisplayName("Typ")]
         public TypeOfNode TypeOfNode { get; set; }
         
-        //[DisplayName("")]
-        public int NodeAboveId { get; set; }
+        public int? NodeAboveId { get; set; }
 
         [DisplayName("Vedúci")]
-        public int HeadOfNodeId { get; set; }
+        public int? HeadOfNodeId { get; set; }
     }
 }

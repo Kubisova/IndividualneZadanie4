@@ -5,33 +5,40 @@ using System.Text;
 using System.Threading.Tasks;
 using Data.Repositories;
 using Data.Models;
+using CompanyStructureCore;
+using Data;
 
 namespace CompanyStructureApp
 {
     public class AddFirmViewModel
     {
-        public string FirmCode { get; set; }
-        public string FirmName { get; set; }
-        public int HeadOfFirmId { get; set; }
+        public string CodeOfNode { get; set; }
+        public string NameOfNode { get; set; }
+        public int HeadOfNodeId { get; set; }
 
         public List<Employee> Employees { get; set; }
-        private CompanyStructureNodeRepository _companyStructureNodeRepository;
-        private EmployeeRepository _employeeRepository;
+        private NodeFactory _nodeFactory;
 
         public AddFirmViewModel()
         {
-            _companyStructureNodeRepository = new CompanyStructureNodeRepository(); 
-            _employeeRepository = new EmployeeRepository();
+            _nodeFactory = new NodeFactory();
         }
 
-        public void GetEmployees()
+        public void GetEmployeesByFirm()
         {
-            Employees = _employeeRepository.GetEmployees();
+            Employees = RepositoryManager.EmployeeRepository.GetEmployeesByFirm();
         }
 
-        public void AddFirm()
+        public void AddNode(TypeOfNode typeOfNode)
         {
-            //_companyStructureNodeRepository.AddFirm(firm);
+            CompanyStructureNode node = _nodeFactory.CreateNode(CodeOfNode, NameOfNode, typeOfNode);
+            RepositoryManager.CompanyStructureNodeRepository.AddFirm(node);
+        }
+
+        public void AddNode(TypeOfNode typeOfNode, int parentId)
+        {
+            CompanyStructureNode node = _nodeFactory.CreateNode(CodeOfNode, NameOfNode, typeOfNode, parentId);
+            RepositoryManager.CompanyStructureNodeRepository.AddNode(node);
         }
     }
 

@@ -41,7 +41,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Class1.cs" />
+    <Compile Include="RepositoryManager.cs" />
     <Compile Include="Enums.cs" />
     <Compile Include="Models\CompanyStructureNode.cs" />
     <Compile Include="Models\Employee.cs" />

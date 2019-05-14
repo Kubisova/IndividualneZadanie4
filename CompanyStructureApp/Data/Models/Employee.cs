@@ -12,6 +12,9 @@ namespace Data.Models
         public int EmployeeId { get; set; }
         public int NodeId { get; set; }
 
+        [DisplayName("Titul")]
+        public string Title { get; set; }
+
         [DisplayName("Meno")]
         public string Name { get; set; }
 

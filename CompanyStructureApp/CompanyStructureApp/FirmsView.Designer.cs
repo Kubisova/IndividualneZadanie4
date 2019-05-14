@@ -34,21 +34,28 @@
             this.btnShowFirm = new System.Windows.Forms.Button();
             this.lblFirmsList = new System.Windows.Forms.Label();
             this.btnClose = new System.Windows.Forms.Button();
-            this.btnCreateCompanytStructure = new System.Windows.Forms.Button();
+            this.btnCompanytStructure = new System.Windows.Forms.Button();
             this.btnEmployees = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dGVFirms)).BeginInit();
             this.SuspendLayout();
             // 
             // dGVFirms
             // 
+            this.dGVFirms.AllowUserToAddRows = false;
+            this.dGVFirms.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.dGVFirms.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dGVFirms.Location = new System.Drawing.Point(15, 25);
             this.dGVFirms.Name = "dGVFirms";
+            this.dGVFirms.ReadOnly = true;
+            this.dGVFirms.RowHeadersVisible = false;
             this.dGVFirms.Size = new System.Drawing.Size(497, 426);
             this.dGVFirms.TabIndex = 1;
             // 
             // btnAddFirm
             // 
+            this.btnAddFirm.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.btnAddFirm.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.btnAddFirm.Location = new System.Drawing.Point(15, 468);
             this.btnAddFirm.Name = "btnAddFirm";
@@ -60,6 +67,7 @@
             // 
             // btnEditFirm
             // 
+            this.btnEditFirm.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.btnEditFirm.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.btnEditFirm.Location = new System.Drawing.Point(138, 468);
             this.btnEditFirm.Name = "btnEditFirm";
@@ -71,6 +79,7 @@
             // 
             // btnShowFirm
             // 
+            this.btnShowFirm.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.btnShowFirm.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.btnShowFirm.Location = new System.Drawing.Point(257, 468);
             this.btnShowFirm.Name = "btnShowFirm";
@@ -92,6 +101,7 @@
             // 
             // btnClose
             // 
+            this.btnClose.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.btnClose.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.btnClose.Location = new System.Drawing.Point(420, 505);
             this.btnClose.Name = "btnClose";
@@ -101,19 +111,21 @@
             this.btnClose.UseVisualStyleBackColor = true;
             this.btnClose.Click += new System.EventHandler(this.btnClose_Click);
             // 
-            // btnCreateCompanytStructure
+            // btnCompanytStructure
             // 
-            this.btnCreateCompanytStructure.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.btnCreateCompanytStructure.Location = new System.Drawing.Point(15, 505);
-            this.btnCreateCompanytStructure.Name = "btnCreateCompanytStructure";
-            this.btnCreateCompanytStructure.Size = new System.Drawing.Size(175, 23);
-            this.btnCreateCompanytStructure.TabIndex = 8;
-            this.btnCreateCompanytStructure.Text = "Organizačná štruktúra";
-            this.btnCreateCompanytStructure.UseVisualStyleBackColor = true;
-            this.btnCreateCompanytStructure.Click += new System.EventHandler(this.btnCreateCompanytStructure_Click);
+            this.btnCompanytStructure.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.btnCompanytStructure.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.btnCompanytStructure.Location = new System.Drawing.Point(15, 505);
+            this.btnCompanytStructure.Name = "btnCompanytStructure";
+            this.btnCompanytStructure.Size = new System.Drawing.Size(175, 23);
+            this.btnCompanytStructure.TabIndex = 8;
+            this.btnCompanytStructure.Text = "Organizačná štruktúra";
+            this.btnCompanytStructure.UseVisualStyleBackColor = true;
+            this.btnCompanytStructure.Click += new System.EventHandler(this.btnCompanytStructure_Click);
             // 
             // btnEmployees
             // 
+            this.btnEmployees.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.btnEmployees.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.btnEmployees.Location = new System.Drawing.Point(209, 505);
             this.btnEmployees.Name = "btnEmployees";
@@ -129,7 +141,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(532, 546);
             this.Controls.Add(this.btnEmployees);
-            this.Controls.Add(this.btnCreateCompanytStructure);
+            this.Controls.Add(this.btnCompanytStructure);
             this.Controls.Add(this.btnClose);
             this.Controls.Add(this.lblFirmsList);
             this.Controls.Add(this.btnShowFirm);
@@ -138,6 +150,7 @@
             this.Controls.Add(this.dGVFirms);
             this.Name = "FirmsView";
             this.Text = "Firmy";
+            this.Load += new System.EventHandler(this.FirmsView_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dGVFirms)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -152,7 +165,7 @@
         private System.Windows.Forms.Button btnShowFirm;
         private System.Windows.Forms.Label lblFirmsList;
         private System.Windows.Forms.Button btnClose;
-        private System.Windows.Forms.Button btnCreateCompanytStructure;
+        private System.Windows.Forms.Button btnCompanytStructure;
         private System.Windows.Forms.Button btnEmployees;
     }
 }

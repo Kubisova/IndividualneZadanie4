@@ -31,12 +31,12 @@
             this.lblCodeOfFirm = new System.Windows.Forms.Label();
             this.lblName = new System.Windows.Forms.Label();
             this.lblHeadOfFirm = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.textBox2 = new System.Windows.Forms.TextBox();
-            this.textBox3 = new System.Windows.Forms.TextBox();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.dataGridView2 = new System.Windows.Forms.DataGridView();
-            this.dataGridView3 = new System.Windows.Forms.DataGridView();
+            this.txtFirmCode = new System.Windows.Forms.TextBox();
+            this.txtFirmName = new System.Windows.Forms.TextBox();
+            this.txtHeadOfFirm = new System.Windows.Forms.TextBox();
+            this.dGVDivision = new System.Windows.Forms.DataGridView();
+            this.dGVProject = new System.Windows.Forms.DataGridView();
+            this.dGVDepartment = new System.Windows.Forms.DataGridView();
             this.btnAddDivision = new System.Windows.Forms.Button();
             this.btnEditDivision = new System.Windows.Forms.Button();
             this.btnShowDivision = new System.Windows.Forms.Button();
@@ -50,9 +50,9 @@
             this.lblDivision = new System.Windows.Forms.Label();
             this.lblProject = new System.Windows.Forms.Label();
             this.lblDepartment = new System.Windows.Forms.Label();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView3)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dGVDivision)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dGVProject)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dGVDepartment)).BeginInit();
             this.SuspendLayout();
             // 
             // lblCodeOfFirm
@@ -82,50 +82,59 @@
             this.lblHeadOfFirm.TabIndex = 2;
             this.lblHeadOfFirm.Text = "Riaditeľ";
             // 
-            // textBox1
+            // txtFirmCode
             // 
-            this.textBox1.Location = new System.Drawing.Point(58, 20);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(116, 20);
-            this.textBox1.TabIndex = 3;
+            this.txtFirmCode.Location = new System.Drawing.Point(58, 20);
+            this.txtFirmCode.Name = "txtFirmCode";
+            this.txtFirmCode.Size = new System.Drawing.Size(116, 20);
+            this.txtFirmCode.TabIndex = 3;
             // 
-            // textBox2
+            // txtFirmName
             // 
-            this.textBox2.Location = new System.Drawing.Point(242, 21);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(219, 20);
-            this.textBox2.TabIndex = 4;
+            this.txtFirmName.Location = new System.Drawing.Point(242, 21);
+            this.txtFirmName.Name = "txtFirmName";
+            this.txtFirmName.Size = new System.Drawing.Size(219, 20);
+            this.txtFirmName.TabIndex = 4;
             // 
-            // textBox3
+            // txtHeadOfFirm
             // 
-            this.textBox3.Location = new System.Drawing.Point(548, 20);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(199, 20);
-            this.textBox3.TabIndex = 5;
+            this.txtHeadOfFirm.Location = new System.Drawing.Point(548, 20);
+            this.txtHeadOfFirm.Name = "txtHeadOfFirm";
+            this.txtHeadOfFirm.Size = new System.Drawing.Size(199, 20);
+            this.txtHeadOfFirm.TabIndex = 5;
             // 
-            // dataGridView1
+            // dGVDivision
             // 
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(12, 88);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(318, 437);
-            this.dataGridView1.TabIndex = 6;
+            this.dGVDivision.AllowUserToAddRows = false;
+            this.dGVDivision.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dGVDivision.Location = new System.Drawing.Point(12, 88);
+            this.dGVDivision.Name = "dGVDivision";
+            this.dGVDivision.ReadOnly = true;
+            this.dGVDivision.RowHeadersVisible = false;
+            this.dGVDivision.Size = new System.Drawing.Size(318, 437);
+            this.dGVDivision.TabIndex = 6;
             // 
-            // dataGridView2
+            // dGVProject
             // 
-            this.dataGridView2.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView2.Location = new System.Drawing.Point(346, 88);
-            this.dataGridView2.Name = "dataGridView2";
-            this.dataGridView2.Size = new System.Drawing.Size(326, 437);
-            this.dataGridView2.TabIndex = 7;
+            this.dGVProject.AllowUserToAddRows = false;
+            this.dGVProject.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dGVProject.Location = new System.Drawing.Point(346, 88);
+            this.dGVProject.Name = "dGVProject";
+            this.dGVProject.ReadOnly = true;
+            this.dGVProject.RowHeadersVisible = false;
+            this.dGVProject.Size = new System.Drawing.Size(326, 437);
+            this.dGVProject.TabIndex = 7;
             // 
-            // dataGridView3
+            // dGVDepartment
             // 
-            this.dataGridView3.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView3.Location = new System.Drawing.Point(688, 88);
-            this.dataGridView3.Name = "dataGridView3";
-            this.dataGridView3.Size = new System.Drawing.Size(319, 437);
-            this.dataGridView3.TabIndex = 8;
+            this.dGVDepartment.AllowUserToAddRows = false;
+            this.dGVDepartment.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dGVDepartment.Location = new System.Drawing.Point(688, 88);
+            this.dGVDepartment.Name = "dGVDepartment";
+            this.dGVDepartment.ReadOnly = true;
+            this.dGVDepartment.RowHeadersVisible = false;
+            this.dGVDepartment.Size = new System.Drawing.Size(319, 437);
+            this.dGVDepartment.TabIndex = 8;
             // 
             // btnAddDivision
             // 
@@ -135,6 +144,7 @@
             this.btnAddDivision.TabIndex = 10;
             this.btnAddDivision.Text = "Pridaj";
             this.btnAddDivision.UseVisualStyleBackColor = true;
+            this.btnAddDivision.Click += new System.EventHandler(this.btnAddDivision_Click);
             // 
             // btnEditDivision
             // 
@@ -216,6 +226,7 @@
             this.btnClose.TabIndex = 22;
             this.btnClose.Text = "Zatvor";
             this.btnClose.UseVisualStyleBackColor = true;
+            this.btnClose.Click += new System.EventHandler(this.btnClose_Click);
             // 
             // lblDivision
             // 
@@ -262,20 +273,23 @@
             this.Controls.Add(this.btnShowDivision);
             this.Controls.Add(this.btnEditDivision);
             this.Controls.Add(this.btnAddDivision);
-            this.Controls.Add(this.dataGridView3);
-            this.Controls.Add(this.dataGridView2);
-            this.Controls.Add(this.dataGridView1);
-            this.Controls.Add(this.textBox3);
-            this.Controls.Add(this.textBox2);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.dGVDepartment);
+            this.Controls.Add(this.dGVProject);
+            this.Controls.Add(this.dGVDivision);
+            this.Controls.Add(this.txtHeadOfFirm);
+            this.Controls.Add(this.txtFirmName);
+            this.Controls.Add(this.txtFirmCode);
             this.Controls.Add(this.lblHeadOfFirm);
             this.Controls.Add(this.lblName);
             this.Controls.Add(this.lblCodeOfFirm);
+            this.MaximumSize = new System.Drawing.Size(1038, 699);
+            this.MinimumSize = new System.Drawing.Size(1038, 699);
             this.Name = "CompanyStructureView";
             this.Text = "Organizačná štruktúra firmy";
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView3)).EndInit();
+            this.Load += new System.EventHandler(this.CompanyStructureView_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.dGVDivision)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dGVProject)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dGVDepartment)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -286,12 +300,12 @@
         private System.Windows.Forms.Label lblCodeOfFirm;
         private System.Windows.Forms.Label lblName;
         private System.Windows.Forms.Label lblHeadOfFirm;
-        private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.TextBox textBox2;
-        private System.Windows.Forms.TextBox textBox3;
-        private System.Windows.Forms.DataGridView dataGridView1;
-        private System.Windows.Forms.DataGridView dataGridView2;
-        private System.Windows.Forms.DataGridView dataGridView3;
+        private System.Windows.Forms.TextBox txtFirmCode;
+        private System.Windows.Forms.TextBox txtFirmName;
+        private System.Windows.Forms.TextBox txtHeadOfFirm;
+        private System.Windows.Forms.DataGridView dGVDivision;
+        private System.Windows.Forms.DataGridView dGVProject;
+        private System.Windows.Forms.DataGridView dGVDepartment;
         private System.Windows.Forms.Button btnAddDivision;
         private System.Windows.Forms.Button btnEditDivision;
         private System.Windows.Forms.Button btnShowDivision;

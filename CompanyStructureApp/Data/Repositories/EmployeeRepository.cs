@@ -16,7 +16,7 @@ namespace Data.Repositories
 
     public class EmployeeRepository
     {
-        public List<Employee> GetEmployees()
+        public List<Employee> GetEmployeesByFirm()
         {
             List<Employee> employees = new List<Employee>();
 
@@ -35,10 +35,11 @@ namespace Data.Repositories
                             Employee employee = new Employee();
                             employee.EmployeeId = reader.GetInt32(0);
                             employee.NodeId = reader.GetInt32(1);
-                            employee.Name = reader.GetString(2);
-                            employee.Surname = reader.GetString(3);
-                            employee.Phone = reader.GetString(4);
-                            employee.Email = reader.GetString(5);
+                            employee.Title = reader.GetString(2);
+                            employee.Name = reader.GetString(3);
+                            employee.Surname = reader.GetString(4);
+                            employee.Phone = reader.GetString(5);
+                            employee.Email = reader.GetString(6);
                             employees.Add(employee);
                         }
                     }
@@ -46,6 +47,49 @@ namespace Data.Repositories
             }
 
             return employees;
+        }
+
+        public void AddEmployee()
+        {
+           
+            using (SqlConnection connection = new SqlConnection(Constants.CONNECTION_STRING))
+            {
+                
+
+                //connection.Open();
+                //using (SqlCommand command = connection.CreateCommand())
+                //{
+                //    command.CommandText = @"insert into Card output inserted.CardId 
+                //                                values(@cardNumber, @pin, @cardValidity, @isBlocked)";
+
+                //    command.Parameters.Add("@cardNumber", SqlDbType.Int).Value = card.CardNumber;
+                //    command.Parameters.Add("@pin", SqlDbType.Int).Value = card.Pin;
+                //    command.Parameters.Add("@cardValidity", SqlDbType.Date).Value = card.CardValidity;
+                //    command.Parameters.Add("@isBlocked", SqlDbType.Bit).Value = card.IsBlocked;
+
+                //    cardId = Convert.ToInt32(command.ExecuteScalar());
+                //}
+
+                //using (SqlCommand command = connection.CreateCommand())
+                //{
+                //    command.CommandText = @"insert into AccountCard 
+                //                                (AccountId, CardId) 
+                //                                values(@accountId, @cardId)";
+
+                //    command.Parameters.Add("@accountId", SqlDbType.Int).Value = accountId;
+                //    command.Parameters.Add("@cardId", SqlDbType.Int).Value = cardId;
+
+                //    success = (command.ExecuteNonQuery() > 0);
+                //}
+
+                //using (SqlCommand command = connection.CreateCommand())
+                //{
+                //    command.CommandText = @"Update Account set CardsCount = (CardsCount + 1) where AccountId = @accountId";
+                //    command.Parameters.Add("@accountId", SqlDbType.Int).Value = accountId;
+
+                //    command.ExecuteNonQuery();
+                //}
+            }
         }
     }
 }

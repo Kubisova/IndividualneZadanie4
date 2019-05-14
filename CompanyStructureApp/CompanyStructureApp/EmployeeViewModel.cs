@@ -8,6 +8,7 @@ namespace CompanyStructureApp
 {
     public class EmployeeViewModel
     {
+        public string Title { get; set; }
         public string Name { get; set; }
         public string Surname { get; set; }
         public string Phone { get; set; }

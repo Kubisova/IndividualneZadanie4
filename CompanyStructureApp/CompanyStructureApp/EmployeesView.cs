@@ -48,5 +48,12 @@ namespace CompanyStructureApp
         {
             Close();
         }
+
+        private void EmployeesView_Load(object sender, EventArgs e)
+        {
+            _employeesViewModel.GetEmployees();
+            dgvEmployees.DataSource = _employeesViewModel.Employees;
+            dgvEmployees.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+        }
     }
 }

@@ -30,12 +30,12 @@
         {
             this.lblEmployeesList = new System.Windows.Forms.Label();
             this.btnAddEmployee = new System.Windows.Forms.Button();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.dgvEmployees = new System.Windows.Forms.DataGridView();
             this.btnEditEmployee = new System.Windows.Forms.Button();
             this.btnShowEmployee = new System.Windows.Forms.Button();
             this.btnClose = new System.Windows.Forms.Button();
             this.btnDeleteEmployee = new System.Windows.Forms.Button();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvEmployees)).BeginInit();
             this.SuspendLayout();
             // 
             // lblEmployeesList
@@ -59,13 +59,13 @@
             this.btnAddEmployee.UseVisualStyleBackColor = true;
             this.btnAddEmployee.Click += new System.EventHandler(this.btnAddEmployee_Click);
             // 
-            // dataGridView1
+            // dgvEmployees
             // 
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(12, 34);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(854, 549);
-            this.dataGridView1.TabIndex = 9;
+            this.dgvEmployees.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvEmployees.Location = new System.Drawing.Point(12, 34);
+            this.dgvEmployees.Name = "dgvEmployees";
+            this.dgvEmployees.Size = new System.Drawing.Size(854, 549);
+            this.dgvEmployees.TabIndex = 9;
             // 
             // btnEditEmployee
             // 
@@ -120,12 +120,13 @@
             this.Controls.Add(this.btnClose);
             this.Controls.Add(this.btnShowEmployee);
             this.Controls.Add(this.btnEditEmployee);
-            this.Controls.Add(this.dataGridView1);
+            this.Controls.Add(this.dgvEmployees);
             this.Controls.Add(this.btnAddEmployee);
             this.Controls.Add(this.lblEmployeesList);
             this.Name = "EmployeesView";
             this.Text = "Zamestnanci";
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            this.Load += new System.EventHandler(this.EmployeesView_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.dgvEmployees)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -135,7 +136,7 @@
 
         private System.Windows.Forms.Label lblEmployeesList;
         private System.Windows.Forms.Button btnAddEmployee;
-        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.DataGridView dgvEmployees;
         private System.Windows.Forms.Button btnEditEmployee;
         private System.Windows.Forms.Button btnShowEmployee;
         private System.Windows.Forms.Button btnClose;

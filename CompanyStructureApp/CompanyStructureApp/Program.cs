@@ -16,7 +16,7 @@ namespace CompanyStructureApp
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new FirmsView());
+            Application.Run(new FirmsView(new FirmsViewModel()));
         }
     }
 }
