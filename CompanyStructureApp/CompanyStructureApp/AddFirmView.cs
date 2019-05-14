@@ -74,7 +74,11 @@ namespace CompanyStructureApp
 
         private void btnEmployees_Click(object sender, EventArgs e)
         {
-
+            using (var employeesView = new EmployeesView(new EmployeesViewModel()))
+            {
+                employeesView.StartPosition = FormStartPosition.CenterParent;
+                employeesView.ShowDialog();
+            }
         }
     }
 }

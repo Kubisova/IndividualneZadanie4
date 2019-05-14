@@ -30,14 +30,14 @@ namespace CompanyStructureApp
             Divisions = RepositoryManager.CompanyStructureNodeRepository.GetNodesByTypeAndNodeAboveId(TypeOfNode.Division, Firm.NodeId);
         }
 
-        public void GetProjects()
+        public void GetProjects(int divisionId)
         {
-            Projects = RepositoryManager.CompanyStructureNodeRepository.GetNodesByType(TypeOfNode.Project);
+            Projects = RepositoryManager.CompanyStructureNodeRepository.GetNodesByTypeAndNodeAboveId(TypeOfNode.Project, divisionId);
         }
 
-        public void GetDepartments()
+        public void GetDepartments(int projectId)
         {
-            Departments = RepositoryManager.CompanyStructureNodeRepository.GetNodesByType(TypeOfNode.Department);
+            Departments = RepositoryManager.CompanyStructureNodeRepository.GetNodesByTypeAndNodeAboveId(TypeOfNode.Department, projectId);
         }
     }
 }

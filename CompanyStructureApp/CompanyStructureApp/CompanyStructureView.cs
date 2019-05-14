@@ -41,6 +41,7 @@ namespace CompanyStructureApp
                 {
                     _companyStructureViewModel.GetDivisions();
                     dGVDivision.DataSource = _companyStructureViewModel.Divisions;
+                    LoadGridProjects();
                 }
             }
         }
@@ -53,6 +54,7 @@ namespace CompanyStructureApp
 
             LoadGridDivisions();
             LoadGridProjects();
+            LoadGridDepartments();
         }
 
         private void LoadGridDivisions()
@@ -67,8 +69,98 @@ namespace CompanyStructureApp
 
         private void LoadGridProjects()
         {
-            _companyStructureViewModel.GetProjects();
+            if (_companyStructureViewModel.Divisions.Count > 0)
+            {
+                _companyStructureViewModel.GetProjects(_companyStructureViewModel.Divisions[0].NodeId);
+                dGVProject.DataSource = _companyStructureViewModel.Projects;
+                dGVProject.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+                dGVProject.Columns[0].Visible = false;
+                dGVProject.Columns[3].Visible = false;
+                dGVProject.Columns[4].Visible = false;
+            }
+        }
+
+        private void LoadGridDepartments()
+        {
+            if (_companyStructureViewModel.Divisions.Count > 0 &&_companyStructureViewModel.Projects !=null
+                &&_companyStructureViewModel.Projects.Count>0)
+            {
+                _companyStructureViewModel.GetDepartments(_companyStructureViewModel.Projects[0].NodeId);
+                dGVDepartment.DataSource = _companyStructureViewModel.Departments;
+                dGVDepartment.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+                dGVDepartment.Columns[0].Visible = false;
+                dGVDepartment.Columns[3].Visible = false;
+                dGVDepartment.Columns[4].Visible = false;
+            }
+            else
+            {
+                dGVDepartment.DataSource = null;
+            }
+        }
+
+        private void btnAddProject_Click(object sender, EventArgs e)
+        {
+            int index = dGVDivision.CurrentRow.Index;
+            int divisionId = _companyStructureViewModel.Divisions[index].NodeId;
+
+            using (var addFirmView = new AddFirmView(new AddFirmViewModel(), Data.TypeOfNode.Project, divisionId))
+            {
+                addFirmView.StartPosition = FormStartPosition.CenterParent;
+                addFirmView.ShowDialog();
+
+                if (addFirmView.DialogResult == DialogResult.OK)
+                {
+                    _companyStructureViewModel.GetProjects(divisionId);
+                    dGVProject.DataSource = _companyStructureViewModel.Projects;
+                }
+            }
+        }
+
+        private void dGVDivision_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            _companyStructureViewModel.GetProjects(_companyStructureViewModel.Divisions[e.RowIndex].NodeId);
+            dGVProject.DataSource = null;
             dGVProject.DataSource = _companyStructureViewModel.Projects;
+            dGVProject.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+            dGVProject.Columns[0].Visible = false;
+            dGVProject.Columns[3].Visible = false;
+            dGVProject.Columns[4].Visible = false;
+
+            LoadGridDepartments();
+        }
+
+        private void btnAddDepartment_Click(object sender, EventArgs e)
+        {
+            int index = dGVProject.CurrentRow.Index;
+            int projectId = _companyStructureViewModel.Projects[index].NodeId;
+
+            using (var addFirmView = new AddFirmView(new AddFirmViewModel(), Data.TypeOfNode.Department, projectId))
+            {
+                addFirmView.StartPosition = FormStartPosition.CenterParent;
+                addFirmView.ShowDialog();
+
+                if (addFirmView.DialogResult == DialogResult.OK)
+                {
+                    _companyStructureViewModel.GetDepartments(projectId);
+                    dGVDepartment.DataSource = _companyStructureViewModel.Departments;
+                }
+            }
+        }
+
+        private void dGVDepartment_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            
+        }
+
+        private void dGVProject_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            _companyStructureViewModel.GetDepartments(_companyStructureViewModel.Projects[e.RowIndex].NodeId);
+            dGVDepartment.DataSource = null;
+            dGVDepartment.DataSource = _companyStructureViewModel.Departments;
+            dGVDepartment.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+            dGVDepartment.Columns[0].Visible = false;
+            dGVDepartment.Columns[3].Visible = false;
+            dGVDepartment.Columns[4].Visible = false;
         }
     }
 }

@@ -47,6 +47,7 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.dGVFirms.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dGVFirms.Location = new System.Drawing.Point(15, 25);
+            this.dGVFirms.MultiSelect = false;
             this.dGVFirms.Name = "dGVFirms";
             this.dGVFirms.ReadOnly = true;
             this.dGVFirms.RowHeadersVisible = false;

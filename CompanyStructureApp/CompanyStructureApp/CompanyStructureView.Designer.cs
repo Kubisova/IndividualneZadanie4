@@ -111,8 +111,10 @@
             this.dGVDivision.Name = "dGVDivision";
             this.dGVDivision.ReadOnly = true;
             this.dGVDivision.RowHeadersVisible = false;
+            this.dGVDivision.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dGVDivision.Size = new System.Drawing.Size(318, 437);
             this.dGVDivision.TabIndex = 6;
+            this.dGVDivision.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dGVDivision_CellClick);
             // 
             // dGVProject
             // 
@@ -122,8 +124,10 @@
             this.dGVProject.Name = "dGVProject";
             this.dGVProject.ReadOnly = true;
             this.dGVProject.RowHeadersVisible = false;
+            this.dGVProject.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dGVProject.Size = new System.Drawing.Size(326, 437);
             this.dGVProject.TabIndex = 7;
+            this.dGVProject.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dGVProject_CellClick);
             // 
             // dGVDepartment
             // 
@@ -133,8 +137,10 @@
             this.dGVDepartment.Name = "dGVDepartment";
             this.dGVDepartment.ReadOnly = true;
             this.dGVDepartment.RowHeadersVisible = false;
+            this.dGVDepartment.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dGVDepartment.Size = new System.Drawing.Size(319, 437);
             this.dGVDepartment.TabIndex = 8;
+            this.dGVDepartment.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dGVDepartment_CellClick);
             // 
             // btnAddDivision
             // 
@@ -172,6 +178,7 @@
             this.btnAddProject.TabIndex = 13;
             this.btnAddProject.Text = "Pridaj";
             this.btnAddProject.UseVisualStyleBackColor = true;
+            this.btnAddProject.Click += new System.EventHandler(this.btnAddProject_Click);
             // 
             // btnEditProject
             // 
@@ -199,6 +206,7 @@
             this.btnAddDepartment.TabIndex = 16;
             this.btnAddDepartment.Text = "Pridaj";
             this.btnAddDepartment.UseVisualStyleBackColor = true;
+            this.btnAddDepartment.Click += new System.EventHandler(this.btnAddDepartment_Click);
             // 
             // btnEditDepartment
             // 
@@ -259,7 +267,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1022, 661);
+            this.ClientSize = new System.Drawing.Size(1022, 660);
             this.Controls.Add(this.lblDepartment);
             this.Controls.Add(this.lblProject);
             this.Controls.Add(this.lblDivision);
