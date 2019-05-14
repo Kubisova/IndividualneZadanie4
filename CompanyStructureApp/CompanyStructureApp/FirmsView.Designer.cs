@@ -110,6 +110,7 @@
             this.btnCreateCompanytStructure.TabIndex = 8;
             this.btnCreateCompanytStructure.Text = "Organizačná štruktúra";
             this.btnCreateCompanytStructure.UseVisualStyleBackColor = true;
+            this.btnCreateCompanytStructure.Click += new System.EventHandler(this.btnCreateCompanytStructure_Click);
             // 
             // btnEmployees
             // 

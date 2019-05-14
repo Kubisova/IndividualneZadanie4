@@ -19,10 +19,10 @@ namespace CompanyStructureApp
 
         private void btnAddFirm_Click(object sender, EventArgs e)
         {
-            using (var AddFirmView = new AddFirmView(new AddFirmViewModel()))
+            using (var addFirmView = new AddFirmView(new AddFirmViewModel()))
             {
-                AddFirmView.StartPosition = FormStartPosition.CenterParent;
-                AddFirmView.ShowDialog();
+                addFirmView.StartPosition = FormStartPosition.CenterParent;
+                addFirmView.ShowDialog();
             }
         }
 
@@ -42,6 +42,15 @@ namespace CompanyStructureApp
         }
 
         private void btnEmployees_Click(object sender, EventArgs e)
+        {
+            using (var employeesView = new EmployeesView(new EmployeesViewModel()))
+            {
+                employeesView.StartPosition = FormStartPosition.CenterParent;
+                employeesView.ShowDialog();
+            }
+        }
+
+        private void btnCreateCompanytStructure_Click(object sender, EventArgs e)
         {
 
         }

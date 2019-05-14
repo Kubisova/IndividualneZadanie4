@@ -18,7 +18,7 @@ namespace Data.Models
         public string NameOfNode { get; set; }
 
         [DisplayName("Typ")]
-        public TypeOfNode TypesOfNode { get; set; }
+        public TypeOfNode TypeOfNode { get; set; }
         
         //[DisplayName("")]
         public int NodeAboveId { get; set; }

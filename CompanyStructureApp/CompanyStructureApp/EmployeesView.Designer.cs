@@ -76,6 +76,7 @@
             this.btnEditEmployee.TabIndex = 10;
             this.btnEditEmployee.Text = "Oprav";
             this.btnEditEmployee.UseVisualStyleBackColor = true;
+            this.btnEditEmployee.Click += new System.EventHandler(this.btnEditEmployee_Click);
             // 
             // btnShowEmployee
             // 
@@ -86,6 +87,7 @@
             this.btnShowEmployee.TabIndex = 11;
             this.btnShowEmployee.Text = "Ukáž";
             this.btnShowEmployee.UseVisualStyleBackColor = true;
+            this.btnShowEmployee.Click += new System.EventHandler(this.btnShowEmployee_Click);
             // 
             // btnClose
             // 
@@ -96,6 +98,7 @@
             this.btnClose.TabIndex = 12;
             this.btnClose.Text = "Zatvor";
             this.btnClose.UseVisualStyleBackColor = true;
+            this.btnClose.Click += new System.EventHandler(this.btnClose_Click);
             // 
             // btnDeleteEmployee
             // 
@@ -106,6 +109,7 @@
             this.btnDeleteEmployee.TabIndex = 13;
             this.btnDeleteEmployee.Text = "Vymaž";
             this.btnDeleteEmployee.UseVisualStyleBackColor = true;
+            this.btnDeleteEmployee.Click += new System.EventHandler(this.btnDeleteEmployee_Click);
             // 
             // EmployeesView
             // 
