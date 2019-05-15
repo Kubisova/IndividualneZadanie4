@@ -65,9 +65,9 @@
             this.lblHeadOfFirm.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.lblHeadOfFirm.Location = new System.Drawing.Point(42, 122);
             this.lblHeadOfFirm.Name = "lblHeadOfFirm";
-            this.lblHeadOfFirm.Size = new System.Drawing.Size(52, 13);
+            this.lblHeadOfFirm.Size = new System.Drawing.Size(46, 13);
             this.lblHeadOfFirm.TabIndex = 2;
-            this.lblHeadOfFirm.Text = "Riaditeľ";
+            this.lblHeadOfFirm.Text = "Vedúci";
             // 
             // txtName
             // 

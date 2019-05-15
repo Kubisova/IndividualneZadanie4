@@ -61,9 +61,12 @@
             // 
             // dgvEmployees
             // 
+            this.dgvEmployees.AllowUserToAddRows = false;
             this.dgvEmployees.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvEmployees.Location = new System.Drawing.Point(12, 34);
             this.dgvEmployees.Name = "dgvEmployees";
+            this.dgvEmployees.ReadOnly = true;
+            this.dgvEmployees.RowHeadersVisible = false;
             this.dgvEmployees.Size = new System.Drawing.Size(854, 549);
             this.dgvEmployees.TabIndex = 9;
             // 
@@ -123,6 +126,8 @@
             this.Controls.Add(this.dgvEmployees);
             this.Controls.Add(this.btnAddEmployee);
             this.Controls.Add(this.lblEmployeesList);
+            this.MaximumSize = new System.Drawing.Size(894, 663);
+            this.MinimumSize = new System.Drawing.Size(894, 663);
             this.Name = "EmployeesView";
             this.Text = "Zamestnanci";
             this.Load += new System.EventHandler(this.EmployeesView_Load);

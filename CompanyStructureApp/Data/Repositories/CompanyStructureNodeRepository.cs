@@ -32,9 +32,29 @@ namespace Data.Repositories
             }
         }
 
+        public void AddFirmWithHead(CompanyStructureNode node)
+        {
+
+            using (SqlConnection connection = new SqlConnection(Constants.CONNECTION_STRING))
+            {
+                connection.Open();
+                using (SqlCommand command = connection.CreateCommand())
+                {
+                    command.CommandText = @"insert into CompanyStructureNode (CodeOfNode, NameOfNode, TypeOfNode, HeadOfNodeId)
+                                            values(@codeOfNode, @nameOfNode, @typeOfNode,@headOfNode)";
+
+                    command.Parameters.Add("@codeOfNode", SqlDbType.NVarChar).Value = node.CodeOfNode;
+                    command.Parameters.Add("@nameOfNode", SqlDbType.NVarChar).Value = node.NameOfNode;
+                    command.Parameters.Add("@typeOfNode", SqlDbType.Int).Value = node.TypeOfNode;
+                    command.Parameters.Add("@headOfNodeId", SqlDbType.Int).Value = node.HeadOfNodeId;
+
+                    command.ExecuteNonQuery();
+                }
+            }
+        }
+
         public void AddNode(CompanyStructureNode node)
         {
-            
             using (SqlConnection connection = new SqlConnection(Constants.CONNECTION_STRING))
             {
                 connection.Open();
@@ -48,6 +68,27 @@ namespace Data.Repositories
                     command.Parameters.Add("@typeOfNode", SqlDbType.Int).Value = node.TypeOfNode;
                     command.Parameters.Add("@nodeAboveId", SqlDbType.Int).Value = node.NodeAboveId;
                    
+                    command.ExecuteNonQuery();
+                }
+            }
+        }
+
+        public void AddNodeWithHead(CompanyStructureNode node)
+        {
+            using (SqlConnection connection = new SqlConnection(Constants.CONNECTION_STRING))
+            {
+                connection.Open();
+                using (SqlCommand command = connection.CreateCommand())
+                {
+                    command.CommandText = @"insert into CompanyStructureNode (CodeOfNode, NameOfNode, TypeOfNode, NodeAboveId, HeadOfNodeId)
+                                            values(@codeOfNode, @nameOfNode, @typeOfNode, @nodeAboveId,@headOfNodeId)";
+
+                    command.Parameters.Add("@codeOfNode", SqlDbType.NVarChar).Value = node.CodeOfNode;
+                    command.Parameters.Add("@nameOfNode", SqlDbType.NVarChar).Value = node.NameOfNode;
+                    command.Parameters.Add("@typeOfNode", SqlDbType.Int).Value = node.TypeOfNode;
+                    command.Parameters.Add("@nodeAboveId", SqlDbType.Int).Value = node.NodeAboveId;
+                    command.Parameters.Add("@headOfNodeId", SqlDbType.Int).Value = node.HeadOfNodeId;
+
                     command.ExecuteNonQuery();
                 }
             }
@@ -75,6 +116,7 @@ namespace Data.Repositories
                             node.CodeOfNode = reader.GetString(1);
                             node.NameOfNode = reader.GetString(2);
                             node.TypeOfNode = (TypeOfNode)reader.GetInt32(3);
+                            node.HeadOfNodeId = reader.IsDBNull(5) ? 0 : reader.GetInt32(5);
 
                             nodes.Add(node);
                         }
@@ -109,6 +151,7 @@ namespace Data.Repositories
                             node.NameOfNode = reader.GetString(2);
                             node.TypeOfNode = (TypeOfNode)reader.GetInt32(3);
                             node.NodeAboveId = reader.GetInt32(4);
+                            node.HeadOfNodeId = reader.IsDBNull(5) ? 0 : reader.GetInt32(5);
 
                             nodes.Add(node);
                         }

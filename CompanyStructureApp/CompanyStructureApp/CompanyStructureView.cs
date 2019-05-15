@@ -34,6 +34,7 @@ namespace CompanyStructureApp
         {
             using (var addFirmView = new AddFirmView(new AddFirmViewModel(), Data.TypeOfNode.Division, _firmId))
             {
+                addFirmView.Text = "Pridaj divíziu";
                 addFirmView.StartPosition = FormStartPosition.CenterParent;
                 addFirmView.ShowDialog();
 
@@ -50,7 +51,6 @@ namespace CompanyStructureApp
         {
             txtFirmCode.Text = _companyStructureViewModel.Firm.CodeOfNode;
             txtFirmName.Text = _companyStructureViewModel.Firm.NameOfNode;
-            //txtHeadOfFirm.Text = _companyStructureViewModel.Firm.HeadOfNodeId;
 
             LoadGridDivisions();
             LoadGridProjects();
@@ -100,18 +100,22 @@ namespace CompanyStructureApp
 
         private void btnAddProject_Click(object sender, EventArgs e)
         {
-            int index = dGVDivision.CurrentRow.Index;
-            int divisionId = _companyStructureViewModel.Divisions[index].NodeId;
-
-            using (var addFirmView = new AddFirmView(new AddFirmViewModel(), Data.TypeOfNode.Project, divisionId))
+            if (dGVDivision.CurrentRow != null)
             {
-                addFirmView.StartPosition = FormStartPosition.CenterParent;
-                addFirmView.ShowDialog();
+                int index = dGVDivision.CurrentRow.Index;
+                int divisionId = _companyStructureViewModel.Divisions[index].NodeId;
 
-                if (addFirmView.DialogResult == DialogResult.OK)
+                using (var addFirmView = new AddFirmView(new AddFirmViewModel(), Data.TypeOfNode.Project, divisionId, _firmId))
                 {
-                    _companyStructureViewModel.GetProjects(divisionId);
-                    dGVProject.DataSource = _companyStructureViewModel.Projects;
+                    addFirmView.Text = "Pridaj projekt";
+                    addFirmView.StartPosition = FormStartPosition.CenterParent;
+                    addFirmView.ShowDialog();
+
+                    if (addFirmView.DialogResult == DialogResult.OK)
+                    {
+                        _companyStructureViewModel.GetProjects(divisionId);
+                        dGVProject.DataSource = _companyStructureViewModel.Projects;
+                    }
                 }
             }
         }
@@ -131,18 +135,22 @@ namespace CompanyStructureApp
 
         private void btnAddDepartment_Click(object sender, EventArgs e)
         {
-            int index = dGVProject.CurrentRow.Index;
-            int projectId = _companyStructureViewModel.Projects[index].NodeId;
-
-            using (var addFirmView = new AddFirmView(new AddFirmViewModel(), Data.TypeOfNode.Department, projectId))
+            if (dGVProject.CurrentRow != null)
             {
-                addFirmView.StartPosition = FormStartPosition.CenterParent;
-                addFirmView.ShowDialog();
+                int index = dGVProject.CurrentRow.Index;
+                int projectId = _companyStructureViewModel.Projects[index].NodeId;
 
-                if (addFirmView.DialogResult == DialogResult.OK)
+                using (var addFirmView = new AddFirmView(new AddFirmViewModel(), Data.TypeOfNode.Department, projectId, _firmId))
                 {
-                    _companyStructureViewModel.GetDepartments(projectId);
-                    dGVDepartment.DataSource = _companyStructureViewModel.Departments;
+                    addFirmView.Text = "Pridaj oddelenie";
+                    addFirmView.StartPosition = FormStartPosition.CenterParent;
+                    addFirmView.ShowDialog();
+
+                    if (addFirmView.DialogResult == DialogResult.OK)
+                    {
+                        _companyStructureViewModel.GetDepartments(projectId);
+                        dGVDepartment.DataSource = _companyStructureViewModel.Departments;
+                    }
                 }
             }
         }
@@ -161,6 +169,21 @@ namespace CompanyStructureApp
             dGVDepartment.Columns[0].Visible = false;
             dGVDepartment.Columns[3].Visible = false;
             dGVDepartment.Columns[4].Visible = false;
+        }
+
+        private void btnEmployeesOfDepartment_Click(object sender, EventArgs e)
+        {
+            if (dGVDepartment.CurrentRow != null)
+            {
+                int index = dGVDepartment.CurrentRow.Index;
+                int departmentId = _companyStructureViewModel.Departments[index].NodeId;
+
+                using (var employeesView = new EmployeesView(new EmployeesViewModel(), _firmId, departmentId))
+                {
+                    employeesView.StartPosition = FormStartPosition.CenterParent;
+                    employeesView.ShowDialog();
+                }
+            }
         }
     }
 }

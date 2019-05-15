@@ -30,10 +30,8 @@
         {
             this.lblCodeOfFirm = new System.Windows.Forms.Label();
             this.lblName = new System.Windows.Forms.Label();
-            this.lblHeadOfFirm = new System.Windows.Forms.Label();
             this.txtFirmCode = new System.Windows.Forms.TextBox();
             this.txtFirmName = new System.Windows.Forms.TextBox();
-            this.txtHeadOfFirm = new System.Windows.Forms.TextBox();
             this.dGVDivision = new System.Windows.Forms.DataGridView();
             this.dGVProject = new System.Windows.Forms.DataGridView();
             this.dGVDepartment = new System.Windows.Forms.DataGridView();
@@ -50,6 +48,7 @@
             this.lblDivision = new System.Windows.Forms.Label();
             this.lblProject = new System.Windows.Forms.Label();
             this.lblDepartment = new System.Windows.Forms.Label();
+            this.btnEmployeesOfDepartment = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dGVDivision)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dGVProject)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dGVDepartment)).BeginInit();
@@ -73,19 +72,11 @@
             this.lblName.TabIndex = 1;
             this.lblName.Text = "Názov";
             // 
-            // lblHeadOfFirm
-            // 
-            this.lblHeadOfFirm.AutoSize = true;
-            this.lblHeadOfFirm.Location = new System.Drawing.Point(498, 24);
-            this.lblHeadOfFirm.Name = "lblHeadOfFirm";
-            this.lblHeadOfFirm.Size = new System.Drawing.Size(44, 13);
-            this.lblHeadOfFirm.TabIndex = 2;
-            this.lblHeadOfFirm.Text = "Riaditeľ";
-            // 
             // txtFirmCode
             // 
             this.txtFirmCode.Location = new System.Drawing.Point(58, 20);
             this.txtFirmCode.Name = "txtFirmCode";
+            this.txtFirmCode.ReadOnly = true;
             this.txtFirmCode.Size = new System.Drawing.Size(116, 20);
             this.txtFirmCode.TabIndex = 3;
             // 
@@ -93,15 +84,9 @@
             // 
             this.txtFirmName.Location = new System.Drawing.Point(242, 21);
             this.txtFirmName.Name = "txtFirmName";
+            this.txtFirmName.ReadOnly = true;
             this.txtFirmName.Size = new System.Drawing.Size(219, 20);
             this.txtFirmName.TabIndex = 4;
-            // 
-            // txtHeadOfFirm
-            // 
-            this.txtHeadOfFirm.Location = new System.Drawing.Point(548, 20);
-            this.txtHeadOfFirm.Name = "txtHeadOfFirm";
-            this.txtHeadOfFirm.Size = new System.Drawing.Size(199, 20);
-            this.txtHeadOfFirm.TabIndex = 5;
             // 
             // dGVDivision
             // 
@@ -243,16 +228,16 @@
             this.lblDivision.Name = "lblDivision";
             this.lblDivision.Size = new System.Drawing.Size(40, 13);
             this.lblDivision.TabIndex = 23;
-            this.lblDivision.Text = "Divízia";
+            this.lblDivision.Text = "Divízie";
             // 
             // lblProject
             // 
             this.lblProject.AutoSize = true;
             this.lblProject.Location = new System.Drawing.Point(346, 68);
             this.lblProject.Name = "lblProject";
-            this.lblProject.Size = new System.Drawing.Size(40, 13);
+            this.lblProject.Size = new System.Drawing.Size(45, 13);
             this.lblProject.TabIndex = 24;
-            this.lblProject.Text = "Projekt";
+            this.lblProject.Text = "Projekty";
             // 
             // lblDepartment
             // 
@@ -261,13 +246,24 @@
             this.lblDepartment.Name = "lblDepartment";
             this.lblDepartment.Size = new System.Drawing.Size(55, 13);
             this.lblDepartment.TabIndex = 25;
-            this.lblDepartment.Text = "Oddelenie";
+            this.lblDepartment.Text = "Oddelenia";
+            // 
+            // btnEmployeesOfDepartment
+            // 
+            this.btnEmployeesOfDepartment.Location = new System.Drawing.Point(691, 597);
+            this.btnEmployeesOfDepartment.Name = "btnEmployeesOfDepartment";
+            this.btnEmployeesOfDepartment.Size = new System.Drawing.Size(153, 23);
+            this.btnEmployeesOfDepartment.TabIndex = 26;
+            this.btnEmployeesOfDepartment.Text = "Zamestnanci oddelenia";
+            this.btnEmployeesOfDepartment.UseVisualStyleBackColor = true;
+            this.btnEmployeesOfDepartment.Click += new System.EventHandler(this.btnEmployeesOfDepartment_Click);
             // 
             // CompanyStructureView
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1022, 660);
+            this.Controls.Add(this.btnEmployeesOfDepartment);
             this.Controls.Add(this.lblDepartment);
             this.Controls.Add(this.lblProject);
             this.Controls.Add(this.lblDivision);
@@ -284,10 +280,8 @@
             this.Controls.Add(this.dGVDepartment);
             this.Controls.Add(this.dGVProject);
             this.Controls.Add(this.dGVDivision);
-            this.Controls.Add(this.txtHeadOfFirm);
             this.Controls.Add(this.txtFirmName);
             this.Controls.Add(this.txtFirmCode);
-            this.Controls.Add(this.lblHeadOfFirm);
             this.Controls.Add(this.lblName);
             this.Controls.Add(this.lblCodeOfFirm);
             this.MaximumSize = new System.Drawing.Size(1038, 699);
@@ -307,10 +301,8 @@
 
         private System.Windows.Forms.Label lblCodeOfFirm;
         private System.Windows.Forms.Label lblName;
-        private System.Windows.Forms.Label lblHeadOfFirm;
         private System.Windows.Forms.TextBox txtFirmCode;
         private System.Windows.Forms.TextBox txtFirmName;
-        private System.Windows.Forms.TextBox txtHeadOfFirm;
         private System.Windows.Forms.DataGridView dGVDivision;
         private System.Windows.Forms.DataGridView dGVProject;
         private System.Windows.Forms.DataGridView dGVDepartment;
@@ -327,5 +319,6 @@
         private System.Windows.Forms.Label lblDivision;
         private System.Windows.Forms.Label lblProject;
         private System.Windows.Forms.Label lblDepartment;
+        private System.Windows.Forms.Button btnEmployeesOfDepartment;
     }
 }

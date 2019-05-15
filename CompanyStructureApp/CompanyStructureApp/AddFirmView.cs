@@ -17,6 +17,7 @@ namespace CompanyStructureApp
         private AddFirmViewModel _addFirmViewModel;
         private TypeOfNode _typeOfNode;
         private int _parentId;
+        private int _firmId;
 
         public AddFirmView(AddFirmViewModel addFirmViewModel, TypeOfNode typeOfNode)
         {
@@ -26,23 +27,43 @@ namespace CompanyStructureApp
             Init();
         }
 
-        public AddFirmView(AddFirmViewModel addFirmViewModel, TypeOfNode typeOfNode, int parentId)
+        public AddFirmView(AddFirmViewModel addFirmViewModel, TypeOfNode typeOfNode, int firmId)
+        {
+            _addFirmViewModel = addFirmViewModel;
+            _typeOfNode = typeOfNode;
+            _firmId = firmId;
+            _parentId = firmId;
+            InitializeComponent();
+            Init();
+        }
+
+        public AddFirmView(AddFirmViewModel addFirmViewModel, TypeOfNode typeOfNode, int parentId, int firmId)
         {
             _addFirmViewModel = addFirmViewModel;
             _typeOfNode = typeOfNode;
             _parentId = parentId;
+            _firmId = firmId;
             InitializeComponent();
             Init();
         }
 
         private void Init()
         {
-            _addFirmViewModel.GetEmployeesByFirm();
-
-            foreach (Employee employee in _addFirmViewModel.Employees)
+            if (_firmId == 0)
             {
-                cmbHeadOfFirm.Items.Add($"{employee.Name} {employee.Surname}");
+                cmbHeadOfFirm.Enabled = false;
             }
+
+            else
+            {
+                _addFirmViewModel.GetEmployeesByFirmId(_firmId);
+
+                foreach (Employee employee in _addFirmViewModel.Employees)
+                {
+                    cmbHeadOfFirm.Items.Add($"{employee.Name} {employee.Surname}");
+                }
+            }
+            
         }
 
         private void btnOk_Click(object sender, EventArgs e)
@@ -63,7 +84,7 @@ namespace CompanyStructureApp
                 _addFirmViewModel.AddNode(_typeOfNode, _parentId);
             }
             
-            this.DialogResult = DialogResult.OK;
+            DialogResult = DialogResult.OK;
             Close();
         }
 
@@ -74,11 +95,7 @@ namespace CompanyStructureApp
 
         private void btnEmployees_Click(object sender, EventArgs e)
         {
-            using (var employeesView = new EmployeesView(new EmployeesViewModel()))
-            {
-                employeesView.StartPosition = FormStartPosition.CenterParent;
-                employeesView.ShowDialog();
-            }
+            
         }
     }
 }

@@ -4,7 +4,7 @@ use CompanyStructureDb
 
 create table CompanyStructureNode(
 NodeId int not null primary key identity(1,1),
-CodeOfNode nvarchar(5) unique not null,
+CodeOfNode nvarchar(10) not null,
 NameOfNode nvarchar(50) not null,
 TypeOfNode int not null,
 NodeAboveId int null foreign key references CompanyStructureNode(NodeId),

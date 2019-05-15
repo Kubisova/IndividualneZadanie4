@@ -11,10 +11,21 @@ namespace CompanyStructureApp
     public class EmployeesViewModel
     {
         public List<Employee> Employees { get; set; }
+        
 
-        public void GetEmployees()
+        public void GetEmployeesByFirmId(int firmId)
         {
-            //Employees = RepositoryManager.EmployeeRepository.GetEmployeesByFirm();
+            Employees = RepositoryManager.EmployeeRepository.GetEmployeesByFirmId(firmId);
+        }
+
+        public void GetEmployeesByDepartmentId(int departmentId)
+        {
+            Employees = RepositoryManager.EmployeeRepository.GetEmployeesByDepartmentId(departmentId);
+        }
+
+        public void DeleteEmployee(int employeeId)
+        {
+            RepositoryManager.EmployeeRepository.DeleteEmployeeById(employeeId);
         }
     }
 }

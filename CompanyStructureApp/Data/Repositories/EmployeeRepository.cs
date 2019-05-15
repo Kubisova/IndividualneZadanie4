@@ -16,7 +16,7 @@ namespace Data.Repositories
 
     public class EmployeeRepository
     {
-        public List<Employee> GetEmployeesByFirm()
+        public List<Employee> GetEmployeesByFirmId(int firmId)
         {
             List<Employee> employees = new List<Employee>();
 
@@ -25,7 +25,8 @@ namespace Data.Repositories
                 connection.Open();
                 using (SqlCommand command = new SqlCommand())
                 {
-                    command.CommandText = "Select * from Employee";
+                    command.CommandText = "Select * from Employee where FirmId = @firmId";
+                    command.Parameters.Add("@firmId", SqlDbType.Int).Value = firmId;
                     command.Connection = connection;
 
                     using (SqlDataReader reader = command.ExecuteReader())
@@ -34,12 +35,14 @@ namespace Data.Repositories
                         {
                             Employee employee = new Employee();
                             employee.EmployeeId = reader.GetInt32(0);
-                            employee.NodeId = reader.GetInt32(1);
-                            employee.Title = reader.GetString(2);
-                            employee.Name = reader.GetString(3);
-                            employee.Surname = reader.GetString(4);
-                            employee.Phone = reader.GetString(5);
-                            employee.Email = reader.GetString(6);
+                            employee.NodeId = reader.IsDBNull(1) ? 0 : reader.GetInt32(1);
+                            employee.FirmId = reader.GetInt32(2);
+                            employee.Title = reader.GetString(3);
+                            employee.Name = reader.GetString(4);
+                            employee.Surname = reader.GetString(5);
+                            employee.Phone = reader.GetString(6);
+                            employee.Email = reader.GetString(7);
+
                             employees.Add(employee);
                         }
                     }
@@ -49,47 +52,160 @@ namespace Data.Repositories
             return employees;
         }
 
-        public void AddEmployee()
+        public List<Employee> GetEmployeesByDepartmentId(int departmentId)
         {
-           
+            List<Employee> employees = new List<Employee>();
+
             using (SqlConnection connection = new SqlConnection(Constants.CONNECTION_STRING))
             {
-                
+                connection.Open();
+                using (SqlCommand command = new SqlCommand())
+                {
+                    command.CommandText = "Select * from Employee where NodeId = @nodeId";
+                    command.Parameters.Add("@nodeId", SqlDbType.Int).Value = departmentId;
+                    command.Connection = connection;
 
-                //connection.Open();
-                //using (SqlCommand command = connection.CreateCommand())
-                //{
-                //    command.CommandText = @"insert into Card output inserted.CardId 
-                //                                values(@cardNumber, @pin, @cardValidity, @isBlocked)";
+                    using (SqlDataReader reader = command.ExecuteReader())
+                    {
+                        while (reader.Read())
+                        {
+                            Employee employee = new Employee();
+                            employee.EmployeeId = reader.GetInt32(0);
+                            employee.NodeId = reader.IsDBNull(1) ? 0 : reader.GetInt32(1);
+                            employee.FirmId = reader.GetInt32(2);
+                            employee.Title = reader.GetString(3);
+                            employee.Name = reader.GetString(4);
+                            employee.Surname = reader.GetString(5);
+                            employee.Phone = reader.GetString(6);
+                            employee.Email = reader.GetString(7);
 
-                //    command.Parameters.Add("@cardNumber", SqlDbType.Int).Value = card.CardNumber;
-                //    command.Parameters.Add("@pin", SqlDbType.Int).Value = card.Pin;
-                //    command.Parameters.Add("@cardValidity", SqlDbType.Date).Value = card.CardValidity;
-                //    command.Parameters.Add("@isBlocked", SqlDbType.Bit).Value = card.IsBlocked;
+                            employees.Add(employee);
+                        }
+                    }
+                }
+            }
 
-                //    cardId = Convert.ToInt32(command.ExecuteScalar());
-                //}
+            return employees;
+        }
 
-                //using (SqlCommand command = connection.CreateCommand())
-                //{
-                //    command.CommandText = @"insert into AccountCard 
-                //                                (AccountId, CardId) 
-                //                                values(@accountId, @cardId)";
+        public Employee GetEmployeeById(int Id)
+        {
+            Employee employee = new Employee();
 
-                //    command.Parameters.Add("@accountId", SqlDbType.Int).Value = accountId;
-                //    command.Parameters.Add("@cardId", SqlDbType.Int).Value = cardId;
+            using (SqlConnection connection = new SqlConnection(Constants.CONNECTION_STRING))
+            {
+                connection.Open();
+                using (SqlCommand command = new SqlCommand())
+                {
+                    command.CommandText = "Select * from Employee where EmployeeId = @employeeId";
+                    command.Parameters.Add("@employeeId", SqlDbType.Int).Value = Id;
+                    command.Connection = connection;
 
-                //    success = (command.ExecuteNonQuery() > 0);
-                //}
+                    using (SqlDataReader reader = command.ExecuteReader())
+                    {
+                        while (reader.Read())
+                        {
+                            employee.EmployeeId = reader.GetInt32(0);
+                            employee.NodeId = reader.IsDBNull(1) ? 0 : reader.GetInt32(1);
+                            employee.FirmId = reader.GetInt32(2);
+                            employee.Title = reader.GetString(3);
+                            employee.Name = reader.GetString(4);
+                            employee.Surname = reader.GetString(5);
+                            employee.Phone = reader.GetString(6);
+                            employee.Email = reader.GetString(7);
+                        }
+                    }
+                }
+            }
 
-                //using (SqlCommand command = connection.CreateCommand())
-                //{
-                //    command.CommandText = @"Update Account set CardsCount = (CardsCount + 1) where AccountId = @accountId";
-                //    command.Parameters.Add("@accountId", SqlDbType.Int).Value = accountId;
+            return employee;
+        }
 
-                //    command.ExecuteNonQuery();
-                //}
+        public void AddEmployee(Employee employee)
+        {
+            using (SqlConnection connection = new SqlConnection(Constants.CONNECTION_STRING))
+            {
+                connection.Open();
+                using (SqlCommand command = connection.CreateCommand())
+                {
+                    command.CommandText = @"insert into Employee (FirmId, Title, Name, Surname, Phone, Email) 
+                                                values(@firmId, @title, @name, @surname,@phone,@email)";
+
+                    command.Parameters.Add("@firmId", SqlDbType.NVarChar).Value = employee.FirmId;
+                    command.Parameters.Add("@title", SqlDbType.NVarChar).Value = employee.Title;
+                    command.Parameters.Add("@name", SqlDbType.NVarChar).Value = employee.Name;
+                    command.Parameters.Add("@surname", SqlDbType.NVarChar).Value = employee.Surname;
+                    command.Parameters.Add("@phone", SqlDbType.NVarChar).Value = employee.Phone;
+                    command.Parameters.Add("@email", SqlDbType.NVarChar).Value = employee.Email;
+
+                    command.ExecuteNonQuery();
+                }
             }
         }
+
+        public void AddEmployeeWithDepartment(Employee employee)
+        {
+            using (SqlConnection connection = new SqlConnection(Constants.CONNECTION_STRING))
+            {
+                connection.Open();
+                using (SqlCommand command = connection.CreateCommand())
+                {
+                    command.CommandText = @"insert into Employee (NodeId, FirmId, Title, Name, Surname, Phone, Email) 
+                                                values(@nodeId, @firmId, @title, @name, @surname,@phone,@email)";
+
+                    command.Parameters.Add("@nodeId", SqlDbType.NVarChar).Value = employee.NodeId;
+                    command.Parameters.Add("@firmId", SqlDbType.NVarChar).Value = employee.FirmId;
+                    command.Parameters.Add("@title", SqlDbType.NVarChar).Value = employee.Title;
+                    command.Parameters.Add("@name", SqlDbType.NVarChar).Value = employee.Name;
+                    command.Parameters.Add("@surname", SqlDbType.NVarChar).Value = employee.Surname;
+                    command.Parameters.Add("@phone", SqlDbType.NVarChar).Value = employee.Phone;
+                    command.Parameters.Add("@email", SqlDbType.NVarChar).Value = employee.Email;
+
+                    command.ExecuteNonQuery();
+                }
+            }
+        }
+
+        public void UpdateEmployee(Employee employee)
+        {
+            using (SqlConnection connection = new SqlConnection(Constants.CONNECTION_STRING))
+            {
+                connection.Open();
+                using (SqlCommand command = connection.CreateCommand())
+                {
+                    command.CommandText = @"update Employee 
+                                            set Title = @title,
+                                                Name = @name, 
+                                                Surname = @surname, 
+                                                Phone = @phone, 
+                                                Email = @email 
+                                            where EmployeeId = @employeeId";
+
+                    command.Parameters.Add("@title", SqlDbType.NVarChar).Value = employee.Title;
+                    command.Parameters.Add("@name", SqlDbType.NVarChar).Value = employee.Name;
+                    command.Parameters.Add("@surname", SqlDbType.NVarChar).Value = employee.Surname;
+                    command.Parameters.Add("@phone", SqlDbType.NVarChar).Value = employee.Phone;
+                    command.Parameters.Add("@email", SqlDbType.NVarChar).Value = employee.Email;
+                    command.Parameters.Add("@employeeId", SqlDbType.Int).Value = employee.EmployeeId;
+
+                    command.ExecuteNonQuery();
+                }
+            }
+        }
+
+        public void DeleteEmployeeById(int employeeId)
+        {
+            using (SqlConnection connection = new SqlConnection(Constants.CONNECTION_STRING))
+            {
+                connection.Open();
+                using (SqlCommand command = connection.CreateCommand())
+                {
+                    command.CommandText = @"delete Employee where EmployeeId = @employeeId";
+                    command.Parameters.Add("@employeeId", SqlDbType.Int).Value = employeeId;
+
+                    command.ExecuteNonQuery();
+                }
+            }
+        }   
     }
 }

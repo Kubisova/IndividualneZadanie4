@@ -24,5 +24,10 @@ namespace Data.Models
 
         [DisplayName("Vedúci")]
         public int? HeadOfNodeId { get; set; }
+
+        public override string ToString()
+        {
+            return $"{TypeOfNode.ToDescriptionString()} {NameOfNode}";
+        }
     }
 }
