@@ -7,10 +7,9 @@ using System.ComponentModel;
 
 namespace Data.Models
 {
-    public class Employee
+    public class EmployeeForView
     {
         public int EmployeeId { get; set; }
-        public int? NodeId { get; set; }
         public int FirmId { get; set; }
 
         [DisplayName("Titul")]
@@ -28,11 +27,7 @@ namespace Data.Models
         [DisplayName("Emailová adresa")]
         public string Email { get; set; }
 
-        public override string ToString()
-        {
-            return $"{Title} {Name} {Surname}";
-        }
+        [DisplayName("Pozícia")]
+        public CompanyStructureNode Node { get; set; }
     }
-
-    
 }

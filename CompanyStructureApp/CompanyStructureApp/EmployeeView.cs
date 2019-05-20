@@ -22,6 +22,7 @@ namespace CompanyStructureApp
             _firmId = firmId;
             _departmentId = departmentId;
             InitializeComponent();
+            
         }
 
         public EmployeeView(EmployeeViewModel employeeViewModel, int firmId, int departmentId, int employeeId)
@@ -48,7 +49,7 @@ namespace CompanyStructureApp
 
         private void InitForEdit()
         {
-            this.Text = "Oprav zamestnanca";
+            Text = "Oprav zamestnanca";
             txtTitle.Text = _employeeViewModel.EmployeeToEdit.Title;
             txtName.Text = _employeeViewModel.EmployeeToEdit.Name;
             txtSurname.Text = _employeeViewModel.EmployeeToEdit.Surname;
@@ -58,7 +59,7 @@ namespace CompanyStructureApp
 
         private void InitForShow()
         {
-            this.Text = "Ukáž zamestnanca";
+            Text = "Ukáž zamestnanca";
             txtTitle.Text = _employeeViewModel.EmployeeToEdit.Title;
             txtName.Text = _employeeViewModel.EmployeeToEdit.Name;
             txtSurname.Text = _employeeViewModel.EmployeeToEdit.Surname;

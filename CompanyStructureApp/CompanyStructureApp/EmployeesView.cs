@@ -33,7 +33,15 @@ namespace CompanyStructureApp
 
                 if (employeeView.DialogResult == DialogResult.OK)
                 {
-                    _employeesViewModel.GetEmployeesByFirmId(_firmId);
+                    if (_departmentId == 0)
+                    {
+                        _employeesViewModel.GetEmployeesByFirmId(_firmId);
+                    }
+                    else
+                    {
+                        _employeesViewModel.GetEmployeesByDepartmentId(_departmentId);
+                    }
+                    
                     dgvEmployees.DataSource = _employeesViewModel.Employees;
                 }
             }
@@ -53,7 +61,15 @@ namespace CompanyStructureApp
 
                     if (employeeView.DialogResult == DialogResult.OK)
                     {
-                        _employeesViewModel.GetEmployeesByFirmId(_firmId);
+                        if (_departmentId == 0)
+                        {
+                            _employeesViewModel.GetEmployeesByFirmId(_firmId);
+                        }
+                        else
+                        {
+                            _employeesViewModel.GetEmployeesByDepartmentId(_departmentId);
+                        }
+                       
                         dgvEmployees.DataSource = _employeesViewModel.Employees;
                     }
                 }

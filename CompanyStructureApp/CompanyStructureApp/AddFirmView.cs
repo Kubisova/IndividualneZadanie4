@@ -16,10 +16,10 @@ namespace CompanyStructureApp
     {
         private AddFirmViewModel _addFirmViewModel;
         private TypeOfNode _typeOfNode;
-        private int _parentId;
+        private int? _parentId;
         private int _firmId;
 
-        public AddFirmView(AddFirmViewModel addFirmViewModel, TypeOfNode typeOfNode)
+        public AddFirmView(AddFirmViewModel addFirmViewModel, TypeOfNode typeOfNode, int? parentId)
         {
             _addFirmViewModel = addFirmViewModel;
             _typeOfNode = typeOfNode;
@@ -27,17 +27,17 @@ namespace CompanyStructureApp
             Init();
         }
 
-        public AddFirmView(AddFirmViewModel addFirmViewModel, TypeOfNode typeOfNode, int firmId)
-        {
-            _addFirmViewModel = addFirmViewModel;
-            _typeOfNode = typeOfNode;
-            _firmId = firmId;
-            _parentId = firmId;
-            InitializeComponent();
-            Init();
-        }
+        //public AddFirmView(AddFirmViewModel addFirmViewModel, TypeOfNode typeOfNode, int firmId)
+        //{
+        //    _addFirmViewModel = addFirmViewModel;
+        //    _typeOfNode = typeOfNode;
+        //    _firmId = firmId;
+        //    _parentId = firmId;
+        //    InitializeComponent();
+        //    Init();
+        //}
 
-        public AddFirmView(AddFirmViewModel addFirmViewModel, TypeOfNode typeOfNode, int parentId, int firmId)
+        public AddFirmView(AddFirmViewModel addFirmViewModel, TypeOfNode typeOfNode, int? parentId, int firmId)
         {
             _addFirmViewModel = addFirmViewModel;
             _typeOfNode = typeOfNode;

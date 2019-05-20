@@ -37,8 +37,6 @@
             this.txtName = new System.Windows.Forms.TextBox();
             this.txtSurname = new System.Windows.Forms.TextBox();
             this.txtEmail = new System.Windows.Forms.TextBox();
-            this.lblPutInStructure = new System.Windows.Forms.Label();
-            this.cmbPutInStructure = new System.Windows.Forms.ComboBox();
             this.txtPhone = new System.Windows.Forms.TextBox();
             this.lblTitle = new System.Windows.Forms.Label();
             this.txtTitle = new System.Windows.Forms.TextBox();
@@ -127,24 +125,6 @@
             this.txtEmail.Size = new System.Drawing.Size(285, 20);
             this.txtEmail.TabIndex = 9;
             // 
-            // lblPutInStructure
-            // 
-            this.lblPutInStructure.AutoSize = true;
-            this.lblPutInStructure.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblPutInStructure.Location = new System.Drawing.Point(22, 213);
-            this.lblPutInStructure.Name = "lblPutInStructure";
-            this.lblPutInStructure.Size = new System.Drawing.Size(68, 13);
-            this.lblPutInStructure.TabIndex = 10;
-            this.lblPutInStructure.Text = "Zaradenie ";
-            // 
-            // cmbPutInStructure
-            // 
-            this.cmbPutInStructure.FormattingEnabled = true;
-            this.cmbPutInStructure.Location = new System.Drawing.Point(106, 210);
-            this.cmbPutInStructure.Name = "cmbPutInStructure";
-            this.cmbPutInStructure.Size = new System.Drawing.Size(285, 21);
-            this.cmbPutInStructure.TabIndex = 11;
-            // 
             // txtPhone
             // 
             this.txtPhone.Location = new System.Drawing.Point(106, 137);
@@ -177,8 +157,6 @@
             this.Controls.Add(this.txtTitle);
             this.Controls.Add(this.lblTitle);
             this.Controls.Add(this.txtPhone);
-            this.Controls.Add(this.cmbPutInStructure);
-            this.Controls.Add(this.lblPutInStructure);
             this.Controls.Add(this.txtEmail);
             this.Controls.Add(this.txtSurname);
             this.Controls.Add(this.txtName);
@@ -206,8 +184,6 @@
         private System.Windows.Forms.TextBox txtName;
         private System.Windows.Forms.TextBox txtSurname;
         private System.Windows.Forms.TextBox txtEmail;
-        private System.Windows.Forms.Label lblPutInStructure;
-        private System.Windows.Forms.ComboBox cmbPutInStructure;
         private System.Windows.Forms.TextBox txtPhone;
         private System.Windows.Forms.Label lblTitle;
         private System.Windows.Forms.TextBox txtTitle;

@@ -41,6 +41,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Models\CompanyStructureNodeForView.cs" />
+    <Compile Include="Models\EmployeeForView.cs" />
     <Compile Include="RepositoryManager.cs" />
     <Compile Include="Enums.cs" />
     <Compile Include="Models\CompanyStructureNode.cs" />

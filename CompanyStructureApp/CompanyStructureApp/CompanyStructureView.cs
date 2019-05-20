@@ -7,7 +7,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using Data.Models;
+using Data;
+
 
 
 namespace CompanyStructureApp
@@ -32,7 +33,7 @@ namespace CompanyStructureApp
 
         private void btnAddDivision_Click(object sender, EventArgs e)
         {
-            using (var addFirmView = new AddFirmView(new AddFirmViewModel(), Data.TypeOfNode.Division, _firmId))
+            using (var addFirmView = new AddFirmView(new AddFirmViewModel(), TypeOfNode.Division, _firmId, _firmId))
             {
                 addFirmView.Text = "Pridaj divíziu";
                 addFirmView.StartPosition = FormStartPosition.CenterParent;
@@ -105,7 +106,7 @@ namespace CompanyStructureApp
                 int index = dGVDivision.CurrentRow.Index;
                 int divisionId = _companyStructureViewModel.Divisions[index].NodeId;
 
-                using (var addFirmView = new AddFirmView(new AddFirmViewModel(), Data.TypeOfNode.Project, divisionId, _firmId))
+                using (var addFirmView = new AddFirmView(new AddFirmViewModel(), TypeOfNode.Project, divisionId, _firmId))
                 {
                     addFirmView.Text = "Pridaj projekt";
                     addFirmView.StartPosition = FormStartPosition.CenterParent;
@@ -140,7 +141,7 @@ namespace CompanyStructureApp
                 int index = dGVProject.CurrentRow.Index;
                 int projectId = _companyStructureViewModel.Projects[index].NodeId;
 
-                using (var addFirmView = new AddFirmView(new AddFirmViewModel(), Data.TypeOfNode.Department, projectId, _firmId))
+                using (var addFirmView = new AddFirmView(new AddFirmViewModel(), TypeOfNode.Department, projectId, _firmId))
                 {
                     addFirmView.Text = "Pridaj oddelenie";
                     addFirmView.StartPosition = FormStartPosition.CenterParent;

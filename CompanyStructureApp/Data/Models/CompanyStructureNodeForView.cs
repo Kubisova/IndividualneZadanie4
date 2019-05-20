@@ -7,7 +7,7 @@ using System.ComponentModel;
 
 namespace Data.Models
 {
-    public class CompanyStructureNode
+    public class CompanyStructureNodeForView
     {
         public int NodeId { get; set; }
 
@@ -25,16 +25,19 @@ namespace Data.Models
         [DisplayName("Vedúci oddelenia")]
         public int? HeadOfNodeId { get; set; }
 
-        public override string ToString()
-        {
-            if (TypeOfNode == TypeOfNode.Firm)
-            {
-                return $"riaditeľ {TypeOfNode.ToDescriptionString()} {NameOfNode}";
-            }
-            else
-            {
-                return $"vedúci {TypeOfNode.ToDescriptionString()} {NameOfNode}";
-            }
-        }
+        public Employee HeadOfNode { get; set; }
+
+
+        //public override string ToString()
+        //{
+        //    if (TypeOfNode == TypeOfNode.Firm)
+        //    {
+        //        return $"riaditeľ {TypeOfNode.ToDescriptionString()} {NameOfNode}";
+        //    }
+        //    else
+        //    {
+        //        return $"vedúci {TypeOfNode.ToDescriptionString()} {NameOfNode}";
+        //    }
+        //}
     }
 }

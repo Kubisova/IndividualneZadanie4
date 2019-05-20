@@ -11,11 +11,12 @@ namespace CompanyStructureApp
 {
     public class FirmsViewModel
     {
-        public List<CompanyStructureNode> Firms { get; set; }
+        //public List<CompanyStructureNode> Firms { get; set; }
+        public List<CompanyStructureNodeForView> Firms {get;set;}
 
         public void GetFirms()
         {
-            Firms = RepositoryManager.CompanyStructureNodeRepository.GetNodesByType(TypeOfNode.Firm);
+            Firms = RepositoryManager.CompanyStructureNodeRepository.GetNodesByTypeForView (TypeOfNode.Firm);
         }
         
         public int GetFirmIdByIndex(int index)

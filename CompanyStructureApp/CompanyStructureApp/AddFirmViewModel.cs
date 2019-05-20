@@ -35,29 +35,29 @@ namespace CompanyStructureApp
 
             if (HeadOfNodeId == 0)
             {
-                node = _nodeFactory.CreateFirm(CodeOfNode, NameOfNode, typeOfNode);
-                RepositoryManager.CompanyStructureNodeRepository.AddFirm(node);
+                node = _nodeFactory.CreateNode(CodeOfNode, NameOfNode, typeOfNode, null, null);
+                RepositoryManager.CompanyStructureNodeRepository.AddNode(node);
             }
             else
             {
-                node = _nodeFactory.CreateFirm(CodeOfNode, NameOfNode, typeOfNode, HeadOfNodeId);
-                RepositoryManager.CompanyStructureNodeRepository.AddFirmWithHead(node);
+                node = _nodeFactory.CreateNode(CodeOfNode, NameOfNode, typeOfNode, null, HeadOfNodeId);
+                RepositoryManager.CompanyStructureNodeRepository.AddNode(node);
             }
         }
 
-        public void AddNode(TypeOfNode typeOfNode, int parentId)
+        public void AddNode(TypeOfNode typeOfNode, int? parentId)
         {
             CompanyStructureNode node = new CompanyStructureNode();
 
             if (HeadOfNodeId == 0)
             {
-                node = _nodeFactory.CreateNode(CodeOfNode, NameOfNode, typeOfNode, parentId);
+                node = _nodeFactory.CreateNode(CodeOfNode, NameOfNode, typeOfNode, parentId, null);
                 RepositoryManager.CompanyStructureNodeRepository.AddNode(node);
             }
             else
             {
                 node = _nodeFactory.CreateNode(CodeOfNode, NameOfNode, typeOfNode, parentId, HeadOfNodeId);
-                RepositoryManager.CompanyStructureNodeRepository.AddNodeWithHead(node);
+                RepositoryManager.CompanyStructureNodeRepository.AddNode(node);
             }
         }
     }

@@ -16,6 +16,7 @@ namespace CompanyStructureApp
         public string Surname { get; set; }
         public string Phone { get; set; }
         public string Email { get; set; }
+        public List<CompanyStructureNode> Nodes { get; set; }
 
         public Employee EmployeeToEdit { get; set; }
         public bool IsEdit { get; set; }
@@ -48,6 +49,11 @@ namespace CompanyStructureApp
         public void EditEmployee()
         {
             RepositoryManager.EmployeeRepository.UpdateEmployee(EmployeeToEdit);
+        }
+
+        public void GetNodesByFirmId(int firmId)
+        {
+            Nodes = RepositoryManager.CompanyStructureNodeRepository.GetAllNodes();
         }
     }
 }
